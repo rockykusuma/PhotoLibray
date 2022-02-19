@@ -10,13 +10,38 @@
 		470C0718FB7F8327960C9AF8 /* Pods_PhotoLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14143EEC566C13BD35CEC79D /* Pods_PhotoLibraryTests.framework */; };
 		96677EB927C128CF0046F2CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677EB827C128CF0046F2CC /* AppDelegate.swift */; };
 		96677EBB27C128CF0046F2CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677EBA27C128CF0046F2CC /* SceneDelegate.swift */; };
-		96677EBD27C128CF0046F2CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677EBC27C128CF0046F2CC /* ViewController.swift */; };
 		96677EC027C128CF0046F2CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96677EBE27C128CF0046F2CC /* Main.storyboard */; };
 		96677EC227C128D10046F2CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96677EC127C128D10046F2CC /* Assets.xcassets */; };
 		96677EC527C128D10046F2CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96677EC327C128D10046F2CC /* LaunchScreen.storyboard */; };
 		96677ED027C128D10046F2CC /* PhotoLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677ECF27C128D10046F2CC /* PhotoLibraryTests.swift */; };
 		96677EDA27C128D10046F2CC /* PhotoLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677ED927C128D10046F2CC /* PhotoLibraryUITests.swift */; };
 		96677EDC27C128D10046F2CC /* PhotoLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677EDB27C128D10046F2CC /* PhotoLibraryUITestsLaunchTests.swift */; };
+		96677EFF27C13AC10046F2CC /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677EFE27C13AC10046F2CC /* EndPointType.swift */; };
+		96677F0127C13B1D0046F2CC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0027C13B1D0046F2CC /* HTTPMethod.swift */; };
+		96677F0327C13B670046F2CC /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0227C13B670046F2CC /* HTTPTask.swift */; };
+		96677F0627C13BC10046F2CC /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0527C13BC10046F2CC /* JSONParameterEncoder.swift */; };
+		96677F0827C13BE30046F2CC /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0727C13BE30046F2CC /* ParameterEncoding.swift */; };
+		96677F0A27C13C030046F2CC /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0927C13C030046F2CC /* URLParameterEncoder.swift */; };
+		96677F0C27C13C710046F2CC /* RestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0B27C13C710046F2CC /* RestAPIService.swift */; };
+		96677F0E27C13CA70046F2CC /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0D27C13CA70046F2CC /* RestResponse.swift */; };
+		96677F1027C13CBE0046F2CC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F0F27C13CBE0046F2CC /* Router.swift */; };
+		96677F1327C13D2A0046F2CC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F1227C13D2A0046F2CC /* APIError.swift */; };
+		96677F1527C13D9E0046F2CC /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F1427C13D9E0046F2CC /* ServiceError.swift */; };
+		96677F1E27C144840046F2CC /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F1D27C144840046F2CC /* HomeCollectionViewController.swift */; };
+		96677F2027C147EF0046F2CC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F1F27C147EF0046F2CC /* HomeViewModel.swift */; };
+		96677F2327C157DE0046F2CC /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F2227C157DE0046F2CC /* ImageService.swift */; };
+		96677F2627C157F20046F2CC /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F2527C157F20046F2CC /* ImageClient.swift */; };
+		96677F2827C15A190046F2CC /* ImageServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F2727C15A190046F2CC /* ImageServiceResponse.swift */; };
+		96677F2B27C15E7D0046F2CC /* ImageEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F2A27C15E7D0046F2CC /* ImageEndPoint.swift */; };
+		96677F2D27C15FE40046F2CC /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F2C27C15FE40046F2CC /* Environment.swift */; };
+		96677F3127C171EF0046F2CC /* HomeCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F3027C171EF0046F2CC /* HomeCollectionViewDataSource.swift */; };
+		96677F3327C172050046F2CC /* HomeCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F3227C172050046F2CC /* HomeCollectionViewDelegate.swift */; };
+		96677F3527C173B00046F2CC /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F3427C173B00046F2CC /* Reusable.swift */; };
+		96677F3727C174300046F2CC /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F3627C174300046F2CC /* NibLoadable.swift */; };
+		96677F3B27C176530046F2CC /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F3927C176530046F2CC /* CustomCollectionViewCell.swift */; };
+		96677F3C27C176530046F2CC /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96677F3A27C176530046F2CC /* CustomCollectionViewCell.xib */; };
+		96677F3F27C178300046F2CC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 96677F3E27C178300046F2CC /* Kingfisher */; };
+		96677F4227C181490046F2CC /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677F4127C181490046F2CC /* HomeDetailViewController.swift */; };
 		BA1275EE6D6D0CA71788FB19 /* Pods_PhotoLibraryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C005FE01D2950A4B5FE7B /* Pods_PhotoLibraryUITests.framework */; };
 		C74B196716EADBA50D383743 /* Pods_PhotoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE522E37FDAFE3C7FF776864 /* Pods_PhotoLibrary.framework */; };
 /* End PBXBuildFile section */
@@ -47,7 +72,6 @@
 		96677EB527C128CF0046F2CC /* PhotoLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96677EB827C128CF0046F2CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96677EBA27C128CF0046F2CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		96677EBC27C128CF0046F2CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		96677EBF27C128CF0046F2CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96677EC127C128D10046F2CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96677EC427C128D10046F2CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +81,31 @@
 		96677ED527C128D10046F2CC /* PhotoLibraryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoLibraryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96677ED927C128D10046F2CC /* PhotoLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryUITests.swift; sourceTree = "<group>"; };
 		96677EDB27C128D10046F2CC /* PhotoLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		96677EFE27C13AC10046F2CC /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		96677F0027C13B1D0046F2CC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		96677F0227C13B670046F2CC /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		96677F0527C13BC10046F2CC /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		96677F0727C13BE30046F2CC /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		96677F0927C13C030046F2CC /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		96677F0B27C13C710046F2CC /* RestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIService.swift; sourceTree = "<group>"; };
+		96677F0D27C13CA70046F2CC /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
+		96677F0F27C13CBE0046F2CC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		96677F1227C13D2A0046F2CC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		96677F1427C13D9E0046F2CC /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		96677F1D27C144840046F2CC /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		96677F1F27C147EF0046F2CC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		96677F2227C157DE0046F2CC /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		96677F2527C157F20046F2CC /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
+		96677F2727C15A190046F2CC /* ImageServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceResponse.swift; sourceTree = "<group>"; };
+		96677F2A27C15E7D0046F2CC /* ImageEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndPoint.swift; sourceTree = "<group>"; };
+		96677F2C27C15FE40046F2CC /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		96677F3027C171EF0046F2CC /* HomeCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		96677F3227C172050046F2CC /* HomeCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		96677F3427C173B00046F2CC /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		96677F3627C174300046F2CC /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		96677F3927C176530046F2CC /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		96677F3A27C176530046F2CC /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		96677F4127C181490046F2CC /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		B5D6273C7F569BB5FE3791DF /* Pods-PhotoLibraryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoLibraryUITests.release.xcconfig"; path = "Target Support Files/Pods-PhotoLibraryUITests/Pods-PhotoLibraryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B73C7FFFC9386CF5BB378D6D /* Pods-PhotoLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoLibrary.release.xcconfig"; path = "Target Support Files/Pods-PhotoLibrary/Pods-PhotoLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		D19D7B89F97C3FCB496FC0B8 /* Pods-PhotoLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoLibrary.debug.xcconfig"; path = "Target Support Files/Pods-PhotoLibrary/Pods-PhotoLibrary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96677F3F27C178300046F2CC /* Kingfisher in Frameworks */,
 				C74B196716EADBA50D383743 /* Pods_PhotoLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,10 +178,15 @@
 		96677EB727C128CF0046F2CC /* PhotoLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				96677F1627C142AE0046F2CC /* UserInterface */,
+				96677F2427C157E30046F2CC /* Clients */,
+				96677F2127C157A10046F2CC /* Services */,
+				96677F1827C143E60046F2CC /* StoryBoards */,
+				96677EFD27C13AA00046F2CC /* ApiClient */,
+				96677EFC27C133730046F2CC /* Models */,
+				96677EFB27C1335E0046F2CC /* Utillities */,
 				96677EB827C128CF0046F2CC /* AppDelegate.swift */,
 				96677EBA27C128CF0046F2CC /* SceneDelegate.swift */,
-				96677EBC27C128CF0046F2CC /* ViewController.swift */,
-				96677EBE27C128CF0046F2CC /* Main.storyboard */,
 				96677EC127C128D10046F2CC /* Assets.xcassets */,
 				96677EC327C128D10046F2CC /* LaunchScreen.storyboard */,
 				96677EC627C128D10046F2CC /* Info.plist */,
@@ -154,6 +209,153 @@
 				96677EDB27C128D10046F2CC /* PhotoLibraryUITestsLaunchTests.swift */,
 			);
 			path = PhotoLibraryUITests;
+			sourceTree = "<group>";
+		};
+		96677EFB27C1335E0046F2CC /* Utillities */ = {
+			isa = PBXGroup;
+			children = (
+				96677F2C27C15FE40046F2CC /* Environment.swift */,
+				96677F3427C173B00046F2CC /* Reusable.swift */,
+				96677F3627C174300046F2CC /* NibLoadable.swift */,
+			);
+			path = Utillities;
+			sourceTree = "<group>";
+		};
+		96677EFC27C133730046F2CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96677F2727C15A190046F2CC /* ImageServiceResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96677EFD27C13AA00046F2CC /* ApiClient */ = {
+			isa = PBXGroup;
+			children = (
+				96677F1127C13D170046F2CC /* ErrorHandling */,
+				96677F0427C13BB00046F2CC /* Encoding */,
+				96677EFE27C13AC10046F2CC /* EndPointType.swift */,
+				96677F0027C13B1D0046F2CC /* HTTPMethod.swift */,
+				96677F0227C13B670046F2CC /* HTTPTask.swift */,
+				96677F0B27C13C710046F2CC /* RestAPIService.swift */,
+				96677F0D27C13CA70046F2CC /* RestResponse.swift */,
+				96677F0F27C13CBE0046F2CC /* Router.swift */,
+			);
+			path = ApiClient;
+			sourceTree = "<group>";
+		};
+		96677F0427C13BB00046F2CC /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				96677F0527C13BC10046F2CC /* JSONParameterEncoder.swift */,
+				96677F0727C13BE30046F2CC /* ParameterEncoding.swift */,
+				96677F0927C13C030046F2CC /* URLParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		96677F1127C13D170046F2CC /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				96677F1227C13D2A0046F2CC /* APIError.swift */,
+				96677F1427C13D9E0046F2CC /* ServiceError.swift */,
+			);
+			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
+		96677F1627C142AE0046F2CC /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				96677F1A27C144090046F2CC /* FavouriteScreen */,
+				96677F1927C143FD0046F2CC /* HomeScreen */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		96677F1827C143E60046F2CC /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				96677EBE27C128CF0046F2CC /* Main.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		96677F1927C143FD0046F2CC /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				96677F4027C1812E0046F2CC /* HomeDetailViewController */,
+				96677F1B27C1442D0046F2CC /* HomeViewController */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		96677F1A27C144090046F2CC /* FavouriteScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FavouriteScreen;
+			sourceTree = "<group>";
+		};
+		96677F1B27C1442D0046F2CC /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96677F1C27C144350046F2CC /* ViewModel */,
+				96677F3827C176370046F2CC /* Cells */,
+				96677F1D27C144840046F2CC /* HomeCollectionViewController.swift */,
+				96677F3027C171EF0046F2CC /* HomeCollectionViewDataSource.swift */,
+				96677F3227C172050046F2CC /* HomeCollectionViewDelegate.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		96677F1C27C144350046F2CC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96677F1F27C147EF0046F2CC /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96677F2127C157A10046F2CC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				96677F2927C15E500046F2CC /* EndPoint */,
+				96677F2227C157DE0046F2CC /* ImageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		96677F2427C157E30046F2CC /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				96677F2527C157F20046F2CC /* ImageClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		96677F2927C15E500046F2CC /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				96677F2A27C15E7D0046F2CC /* ImageEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		96677F3827C176370046F2CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				96677F3927C176530046F2CC /* CustomCollectionViewCell.swift */,
+				96677F3A27C176530046F2CC /* CustomCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		96677F4027C1812E0046F2CC /* HomeDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96677F4127C181490046F2CC /* HomeDetailViewController.swift */,
+			);
+			path = HomeDetailViewController;
 			sourceTree = "<group>";
 		};
 		F1A769617FBC7B1AA985631F /* Pods */ = {
@@ -189,6 +391,9 @@
 			dependencies = (
 			);
 			name = PhotoLibrary;
+			packageProductDependencies = (
+				96677F3E27C178300046F2CC /* Kingfisher */,
+			);
 			productName = PhotoLibrary;
 			productReference = 96677EB527C128CF0046F2CC /* PhotoLibrary.app */;
 			productType = "com.apple.product-type.application";
@@ -263,6 +468,9 @@
 				Base,
 			);
 			mainGroup = 96677EAC27C128CE0046F2CC;
+			packageReferences = (
+				96677F3D27C178300046F2CC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 96677EB627C128CF0046F2CC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -282,6 +490,7 @@
 				96677EC527C128D10046F2CC /* LaunchScreen.storyboard in Resources */,
 				96677EC227C128D10046F2CC /* Assets.xcassets in Resources */,
 				96677EC027C128CF0046F2CC /* Main.storyboard in Resources */,
+				96677F3C27C176530046F2CC /* CustomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,9 +602,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96677EBD27C128CF0046F2CC /* ViewController.swift in Sources */,
+				96677F0327C13B670046F2CC /* HTTPTask.swift in Sources */,
+				96677F3B27C176530046F2CC /* CustomCollectionViewCell.swift in Sources */,
+				96677F2327C157DE0046F2CC /* ImageService.swift in Sources */,
+				96677EFF27C13AC10046F2CC /* EndPointType.swift in Sources */,
+				96677F0827C13BE30046F2CC /* ParameterEncoding.swift in Sources */,
+				96677F2827C15A190046F2CC /* ImageServiceResponse.swift in Sources */,
+				96677F3127C171EF0046F2CC /* HomeCollectionViewDataSource.swift in Sources */,
+				96677F1E27C144840046F2CC /* HomeCollectionViewController.swift in Sources */,
+				96677F1027C13CBE0046F2CC /* Router.swift in Sources */,
 				96677EB927C128CF0046F2CC /* AppDelegate.swift in Sources */,
+				96677F3727C174300046F2CC /* NibLoadable.swift in Sources */,
+				96677F0127C13B1D0046F2CC /* HTTPMethod.swift in Sources */,
+				96677F4227C181490046F2CC /* HomeDetailViewController.swift in Sources */,
+				96677F2D27C15FE40046F2CC /* Environment.swift in Sources */,
+				96677F2627C157F20046F2CC /* ImageClient.swift in Sources */,
+				96677F0E27C13CA70046F2CC /* RestResponse.swift in Sources */,
+				96677F0627C13BC10046F2CC /* JSONParameterEncoder.swift in Sources */,
+				96677F3527C173B00046F2CC /* Reusable.swift in Sources */,
 				96677EBB27C128CF0046F2CC /* SceneDelegate.swift in Sources */,
+				96677F0C27C13C710046F2CC /* RestAPIService.swift in Sources */,
+				96677F0A27C13C030046F2CC /* URLParameterEncoder.swift in Sources */,
+				96677F1527C13D9E0046F2CC /* ServiceError.swift in Sources */,
+				96677F3327C172050046F2CC /* HomeCollectionViewDelegate.swift in Sources */,
+				96677F2027C147EF0046F2CC /* HomeViewModel.swift in Sources */,
+				96677F1327C13D2A0046F2CC /* APIError.swift in Sources */,
+				96677F2B27C15E7D0046F2CC /* ImageEndPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +997,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96677F3D27C178300046F2CC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96677F3E27C178300046F2CC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96677F3D27C178300046F2CC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96677EAD27C128CE0046F2CC /* Project object */;
 }

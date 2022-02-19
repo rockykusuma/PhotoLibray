@@ -1,0 +1,52 @@
+disabled_rules: # rule identifiers to exclude from running
+- trailing_whitespace
+- unused_closure_parameter
+- multiple_closures_with_trailing_closure
+- function_parameter_count
+- todo # temporarily disabled. In general they should be treated as warnings
+
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+
+#Customized Rule
+#Takes default severity as warning as originally designed in lint library
+line_length:
+  warning: 180
+  error: 350
+  ignores_comments: true
+  ignores_urls: true
+
+file_length:
+  warning: 1000
+  error: 1500
+    
+large_tuple:
+  warning: 3
+  error: 4
+
+function_body_length:
+  warning: 200
+  error: 300
+  
+type_body_length:
+  warning: 300
+  error: 800
+
+#Generic customizations, example if we have to use id as a model property to follow an API contract
+identifier_name:
+    min_length: 2
+    max_length:
+        warning: 40
+        error: 50
+
+cyclomatic_complexity:
+    ignores_case_statements: true
+    warning: 15
+    error: 25
+
+vertical_whitespace:
+  max_empty_lines: 2
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+    - Pods
