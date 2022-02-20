@@ -10,7 +10,7 @@ import Foundation
 typealias ImageServiceResponseCompletion = (Swift.Result<ImageServiceResponse?, APIError>) -> Void
 
 protocol ImageServiceProtocol {
-    func getAccountImages(completion: @escaping ImageServiceResponseCompletion)
+    func getAccountImages(with pageNumber: Int?, completion: @escaping ImageServiceResponseCompletion)
     func searchImages(with keyword: String, completion: @escaping ImageServiceResponseCompletion)
     func getFavouriteImages(completion: @escaping ImageServiceResponseCompletion)
 }
@@ -19,8 +19,8 @@ final class ImageService: RestAPIService, ImageServiceProtocol {
     
     private let router = Router<ImageEndPoint>()
     
-    func getAccountImages(completion: @escaping ImageServiceResponseCompletion) {
-        router.request(.getAccountImages) { response in
+    func getAccountImages(with pageNumber: Int?, completion: @escaping ImageServiceResponseCompletion) {
+        router.request(.getAccountImages(pageNumber: pageNumber)) { response in
             self.executeResponseEvaluator(ImageServiceResponse.self, response: response) { imageServiceResponse, responseError in
                 if let error = responseError {
                     completion(.failure(error))

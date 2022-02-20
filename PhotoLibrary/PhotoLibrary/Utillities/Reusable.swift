@@ -59,4 +59,3 @@ extension UITableView {
         self.register(T.self, forHeaderFooterViewReuseIdentifier: T.reusableIdentifier)
     }
 }
-

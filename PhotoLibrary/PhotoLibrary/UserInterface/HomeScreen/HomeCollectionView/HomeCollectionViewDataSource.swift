@@ -11,7 +11,7 @@ import UIKit
 final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     var viewModel: HomeViewModelProvider?
-
+    
     init(withData viewModel: HomeViewModelProvider?) {
         self.viewModel = viewModel
     }
@@ -33,5 +33,15 @@ final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
             cellItem.configureCell(with: photo)
         }
         return cellItem
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let paginationStatus = viewModel?.paginationCompleted,
+           let photosCount = viewModel?.photos.count,
+           !paginationStatus && indexPath.row == photosCount - 1 {
+            let pageNumber = (viewModel?.pageNumber ?? 0) + 1
+            viewModel?.pageNumber = pageNumber
+            viewModel?.getAccountImages()
+        }
     }
 }

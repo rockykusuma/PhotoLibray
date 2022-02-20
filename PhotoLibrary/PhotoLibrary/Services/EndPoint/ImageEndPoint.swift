@@ -8,7 +8,7 @@
 import Foundation
 
 enum ImageEndPoint {
-    case getAccountImages
+    case getAccountImages(pageNumber: Int?)
     case getFavouriteImages
     case searchImages(keyword: String)
 }
@@ -31,7 +31,18 @@ extension ImageEndPoint: EndPointType {
     }
     
     var path: String {
-        Constants.path
+        switch self {
+        case .getAccountImages(let pageNumber):
+            if let page = pageNumber {
+                return "\(Constants.path)/\(page)"
+            } else {
+                return Constants.path
+            }
+        case .getFavouriteImages:
+            return Constants.path
+        case .searchImages(let keyword):
+            return Constants.path
+        }        
     }
     
     var httpMethod: HTTPMethod {

@@ -10,8 +10,8 @@ import Kingfisher
 
 class CustomCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var imageView: UIImageView!
-    
+    @IBOutlet weak var imageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

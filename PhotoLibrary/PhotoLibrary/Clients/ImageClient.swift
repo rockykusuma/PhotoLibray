@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ImageClientProvider {
-    func getAccountImages()
+    func getAccountImages(with pageNumber: Int?)
     func searchImages(with keyword: String)
     func getFavouriteImages()
     var delegate: ImageClientDelegate? { get set }
@@ -30,8 +30,8 @@ final class ImageClient: ImageClientProvider {
         self.imageService = imageService
     }
     
-    func getAccountImages() {
-        imageService.getAccountImages { [weak self] result in
+    func getAccountImages(with pageNumber: Int?) {
+        imageService.getAccountImages(with: pageNumber, completion: { [weak self] result in
             guard let `self` = self else {
                 return
             }
@@ -43,7 +43,7 @@ final class ImageClient: ImageClientProvider {
             case .failure(let error):
                 debugPrint(error.errorDescription ?? "")
             }
-        }
+        })
     }
     
     func searchImages(with keyword: String) {

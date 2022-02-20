@@ -1,0 +1,48 @@
+//
+//  TabBarController.swift
+//  PhotoLibrary
+//
+//  Created by Rakesh Kusuma on 20/02/22.
+//
+
+import UIKit
+
+class TabBarController: UITabBarController {
+    
+    override func viewDidLoad() {
+        configureTabBar()
+        setTabBarItems()
+    }
+    
+    private func configureTabBar() {
+        self.tabBar.layer.masksToBounds = true
+        self.tabBar.barStyle = .black
+        self.tabBar.barTintColor = .white
+        self.tabBar.tintColor = UIColor.orange
+        
+        self.tabBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.tabBar.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        self.tabBar.layer.shadowRadius = 10
+        self.tabBar.layer.shadowOpacity = 1
+        self.tabBar.layer.masksToBounds = false
+        
+        self.delegate = self
+    }
+    
+    func setTabBarItems() {
+        let homeCollectionViewController = HomeCollectionViewController(viewModel: HomeViewModel())
+        homeCollectionViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
+        
+        
+        let favouritesViewController = FavouritesViewController(viewModel: HomeViewModel())
+        favouritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        
+        self.viewControllers = [UINavigationController(rootViewController: homeCollectionViewController), UINavigationController(rootViewController: favouritesViewController)]
+    }
+}
+
+extension TabBarController: UITabBarControllerDelegate {    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+    }
+}

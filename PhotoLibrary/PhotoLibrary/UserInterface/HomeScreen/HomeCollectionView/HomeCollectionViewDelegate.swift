@@ -17,7 +17,9 @@ final class HomeCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell {
+            viewModel?.showDetailImageView(image: cell.imageView.image)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
