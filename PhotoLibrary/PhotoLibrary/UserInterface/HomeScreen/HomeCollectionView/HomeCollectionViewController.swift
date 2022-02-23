@@ -33,7 +33,7 @@ final class HomeCollectionViewController: UIViewController {
         viewModel.delegate = self
         configureUI()
         configureCollectionView()
-        viewModel.getAccountImages()
+        viewModel.fetchAccountImages()
     }
     
     override func viewDidLayoutSubviews() {

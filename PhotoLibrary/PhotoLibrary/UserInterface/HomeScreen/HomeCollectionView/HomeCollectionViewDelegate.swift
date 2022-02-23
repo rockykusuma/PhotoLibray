@@ -25,4 +25,11 @@ final class HomeCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 120)        
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y + scrollView.frame.size.height
+        if offset > scrollView.contentSize.height {
+            viewModel?.fetchImagesMore()
+        }
+    }
 }

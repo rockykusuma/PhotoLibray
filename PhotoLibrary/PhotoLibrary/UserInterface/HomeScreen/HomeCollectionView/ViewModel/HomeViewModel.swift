@@ -9,13 +9,15 @@ import Foundation
 import UIKit
 
 protocol HomeViewModelProvider {
-    func getAccountImages()
+    func fetchAccountImages()
+    func fetchImagesMore()
     func favouriteTheImage()
     var photos: [Photo] { get }
     var delegate: HomeViewModelDelegate? { get set }
     func showDetailImageView(image: UIImage?)
-    var pageNumber: Int { get set }
+    var pageNumber: Int { get }
     var paginationCompleted: Bool { get }
+    var isLoading: Bool { get }
 }
 
 protocol HomeViewModelDelegate: AnyObject {
@@ -27,8 +29,9 @@ final class HomeViewModel: HomeViewModelProvider {
     
     private var imageClient: ImageClientProvider?
     private (set) var photos: [Photo] = []
-    var pageNumber: Int = 0
+    private (set) var pageNumber: Int = 0
     private (set) var paginationCompleted = false
+    private (set) var isLoading = false
     weak var delegate: HomeViewModelDelegate?
     
     init(imageClient: ImageClientProvider = ImageClient()) {
@@ -36,8 +39,18 @@ final class HomeViewModel: HomeViewModelProvider {
         self.imageClient?.delegate = self
     }
     
-    func getAccountImages() {
-        imageClient?.getAccountImages(with: pageNumber)
+    // Fetch the Account Images
+    func fetchAccountImages() {
+        isLoading = true
+        imageClient?.getAccountImages(with: 0)
+    }
+    
+    func fetchImagesMore() {
+        if !paginationCompleted && !isLoading {
+            isLoading = true
+            pageNumber += 1
+            imageClient?.getAccountImages(with: pageNumber)
+        }
     }
     
     func favouriteTheImage() {
@@ -57,12 +70,14 @@ final class HomeViewModel: HomeViewModelProvider {
 extension HomeViewModel: ImageClientDelegate {
     
     func didReceiveAccountImages(data: [Photo]) {
+        self.isLoading = false
         if data.isEmpty {
             paginationCompleted = true
+            debugPrint("Total Photos Count -> \(photos.count)")
             return
         }
         paginationCompleted = false
-        self.photos = data
+        photos.append(contentsOf: data)
         delegate?.reloadCollectionView()
     }
     

@@ -25,23 +25,13 @@ final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cellItem = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.reusableIdentifier,
-                                                                for: indexPath) as? CustomCollectionViewCell else {
+        guard let cellItem = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.reusableIdentifier, for: indexPath) as?
+                CustomCollectionViewCell else {
             return CustomCollectionViewCell()
         }
         if let photo = viewModel?.photos[indexPath.row] {
             cellItem.configureCell(with: photo)
         }
         return cellItem
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let paginationStatus = viewModel?.paginationCompleted,
-           let photosCount = viewModel?.photos.count,
-           !paginationStatus && indexPath.row == photosCount - 1 {
-            let pageNumber = (viewModel?.pageNumber ?? 0) + 1
-            viewModel?.pageNumber = pageNumber
-            viewModel?.getAccountImages()
-        }
     }
 }
