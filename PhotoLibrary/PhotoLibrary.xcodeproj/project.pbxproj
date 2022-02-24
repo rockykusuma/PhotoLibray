@@ -59,7 +59,6 @@
 		96ABE7B727C774360064D9DE /* ImageServiceResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 96ABE7B627C774360064D9DE /* ImageServiceResponse.json */; };
 		96ABE7B927C774970064D9DE /* FavouriteResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 96ABE7B827C774970064D9DE /* FavouriteResponse.json */; };
 		96ABE7BB27C774CB0064D9DE /* FavouriteImageServiceResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 96ABE7BA27C774CB0064D9DE /* FavouriteImageServiceResponse.json */; };
-		96ABE7BD27C7768D0064D9DE /* ImageClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ABE7BC27C7768D0064D9DE /* ImageClientTests.swift */; };
 		96ABE7C027C777A50064D9DE /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ABE7BF27C777A50064D9DE /* HomeViewModelTests.swift */; };
 		96ABE7C227C77A500064D9DE /* FavouriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ABE7C127C77A500064D9DE /* FavouriteViewModelTests.swift */; };
 		96ABE7C427C77C020064D9DE /* HomeCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ABE7C327C77C020064D9DE /* HomeCollectionViewControllerTests.swift */; };
@@ -145,7 +144,6 @@
 		96ABE7B627C774360064D9DE /* ImageServiceResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ImageServiceResponse.json; sourceTree = "<group>"; };
 		96ABE7B827C774970064D9DE /* FavouriteResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FavouriteResponse.json; sourceTree = "<group>"; };
 		96ABE7BA27C774CB0064D9DE /* FavouriteImageServiceResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FavouriteImageServiceResponse.json; sourceTree = "<group>"; };
-		96ABE7BC27C7768D0064D9DE /* ImageClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClientTests.swift; sourceTree = "<group>"; };
 		96ABE7BF27C777A50064D9DE /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		96ABE7C127C77A500064D9DE /* FavouriteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModelTests.swift; sourceTree = "<group>"; };
 		96ABE7C327C77C020064D9DE /* HomeCollectionViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewControllerTests.swift; sourceTree = "<group>"; };
@@ -198,6 +196,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9625F5C027C7D3F600F305E4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				96ABE7C327C77C020064D9DE /* HomeCollectionViewControllerTests.swift */,
+				96ABE7C527C77D360064D9DE /* ImageDetailViewControllerTests.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		96677EAC27C128CE0046F2CC = {
 			isa = PBXGroup;
 			children = (
@@ -243,10 +250,8 @@
 				96ABE7BE27C777970064D9DE /* ViewModels */,
 				96ABE7B527C773ED0064D9DE /* Mocks */,
 				96ABE7AC27C76F6B0064D9DE /* Services */,
-				96ABE7BC27C7768D0064D9DE /* ImageClientTests.swift */,
 				96ABE7AB27C76F630064D9DE /* MockUtilities */,
-				96ABE7C327C77C020064D9DE /* HomeCollectionViewControllerTests.swift */,
-				96ABE7C527C77D360064D9DE /* ImageDetailViewControllerTests.swift */,
+				9625F5C027C7D3F600F305E4 /* ViewControllers */,
 			);
 			path = PhotoLibraryTests;
 			sourceTree = "<group>";
@@ -320,8 +325,8 @@
 		96677F1927C143FD0046F2CC /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
-				96677F1B27C1442D0046F2CC /* HomeCollectionView */,
-				96677F4027C1812E0046F2CC /* HomeCollectionDetail */,
+				96677F1B27C1442D0046F2CC /* CollectionView */,
+				96677F4027C1812E0046F2CC /* DetailView */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -334,7 +339,7 @@
 			path = FavouriteTab;
 			sourceTree = "<group>";
 		};
-		96677F1B27C1442D0046F2CC /* HomeCollectionView */ = {
+		96677F1B27C1442D0046F2CC /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				96677F1C27C144350046F2CC /* ViewModel */,
@@ -344,7 +349,7 @@
 				96677F3027C171EF0046F2CC /* HomeCollectionViewDataSource.swift */,
 				96677F3227C172050046F2CC /* HomeCollectionViewDelegate.swift */,
 			);
-			path = HomeCollectionView;
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		96677F1C27C144350046F2CC /* ViewModel */ = {
@@ -389,14 +394,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		96677F4027C1812E0046F2CC /* HomeCollectionDetail */ = {
+		96677F4027C1812E0046F2CC /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
 				96677F4327C182830046F2CC /* ViewModel */,
 				96677F4127C181490046F2CC /* ImageDetailViewController.swift */,
 				9697A97427C26BCB006EA4F7 /* ImageDetailViewController.xib */,
 			);
-			path = HomeCollectionDetail;
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		96677F4327C182830046F2CC /* ViewModel */ = {
@@ -758,7 +763,6 @@
 				96ABE7B027C770EA0064D9DE /* MockImageFailureService.swift in Sources */,
 				96ABE7C227C77A500064D9DE /* FavouriteViewModelTests.swift in Sources */,
 				9625F5BB27C7CDCA00F305E4 /* SearchViewModelTests.swift in Sources */,
-				96ABE7BD27C7768D0064D9DE /* ImageClientTests.swift in Sources */,
 				96ABE7AE27C76F8D0064D9DE /* MockImageSuccessService.swift in Sources */,
 				96ABE7B227C7716B0064D9DE /* StubGenerator.swift in Sources */,
 				96ABE7B427C7718F0064D9DE /* FileUtility.swift in Sources */,
