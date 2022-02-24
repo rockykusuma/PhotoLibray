@@ -1,18 +1,18 @@
 //
-//  HomeCollectionViewDelegate.swift
+//  FavouriteCollectionViewDelegate.swift
 //  PhotoLibrary
 //
-//  Created by Rakesh Kusuma on 20/02/22.
+//  Created by Rakesh Kusuma on 23/02/22.
 //
 
 import Foundation
 import UIKit
 
-final class HomeCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+final class FavouriteCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var viewModel: HomeViewModelProvider?
+    var viewModel: FavouriteViewModelProvider?
     
-    init(withData viewModel: HomeViewModelProvider?) {
+    init(withData viewModel: FavouriteViewModelProvider?) {
         self.viewModel = viewModel
     }
     
@@ -23,7 +23,7 @@ final class HomeCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)        
+        return CGSize(width: 120, height: 120)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

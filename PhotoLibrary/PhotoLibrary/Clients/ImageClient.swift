@@ -11,14 +11,23 @@ import UIKit
 protocol ImageClientProvider {
     func getAccountImages(with pageNumber: Int?)
     func searchImages(with keyword: String)
-    func getFavouriteImages()
+    func getFavouriteImages(with pageNumber: Int?)
+    func favouriteTheImage(with id: String)
     var delegate: ImageClientDelegate? { get set }
 }
 
 protocol ImageClientDelegate: AnyObject {
     func didReceiveAccountImages(data: [Photo])
-    func didReceiveFavouriteImages(data: [Photo])
+    func didReceiveFavouriteImages(data: [FavouritePhoto])
     func didReceiveSearchResultImages(data: [Photo])
+    func didImageFavourited(status: Bool)
+}
+
+extension ImageClientDelegate {
+    func didReceiveAccountImages(data: [Photo]) {}
+    func didReceiveFavouriteImages(data: [FavouritePhoto]) {}
+    func didReceiveSearchResultImages(data: [Photo]) {}
+    func didImageFavourited(status: Bool) {}
 }
 
 final class ImageClient: ImageClientProvider {
@@ -62,8 +71,8 @@ final class ImageClient: ImageClientProvider {
         }
     }
     
-    func getFavouriteImages() {
-        imageService.getFavouriteImages { [weak self] result in
+    func getFavouriteImages(with pageNumber: Int?) {
+        imageService.getFavouriteImages(with: pageNumber) { [weak self] result in
             guard let `self` = self else {
                 return
             }
@@ -71,6 +80,24 @@ final class ImageClient: ImageClientProvider {
             case .success(let response):
                 if let photos = response?.data {
                     self.delegate?.didReceiveFavouriteImages(data: photos)
+                }
+            case .failure(let error):
+                debugPrint(error.errorDescription ?? "")
+            }
+        }
+    }
+    
+    func favouriteTheImage(with id: String) {
+        imageService.favouriteTheImage(with: id) { [weak self] result in
+            guard let `self` = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                if let status = response?.data, status == "unfavorited" {
+                    self.delegate?.didImageFavourited(status: false)
+                } else {
+                    self.delegate?.didImageFavourited(status: true)
                 }
             case .failure(let error):
                 debugPrint(error.errorDescription ?? "")

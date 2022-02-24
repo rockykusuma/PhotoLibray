@@ -14,7 +14,7 @@ final class HomeCollectionViewController: UIViewController {
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
-    private var viewModel: HomeViewModelProvider
+    private (set) var viewModel: HomeViewModelProvider
     
     var collectionViewDataSource: HomeCollectionViewDataSource?
     var collectionViewDelegateObject: HomeCollectionViewDelegate?
@@ -33,6 +33,10 @@ final class HomeCollectionViewController: UIViewController {
         viewModel.delegate = self
         configureUI()
         configureCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.fetchAccountImages()
     }
     
@@ -41,7 +45,6 @@ final class HomeCollectionViewController: UIViewController {
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
-//        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
     
     private func configureUI() {

@@ -34,7 +34,7 @@ class TabBarController: UITabBarController {
         homeCollectionViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
         
         
-        let favouritesViewController = FavouritesViewController(viewModel: HomeViewModel())
+        let favouritesViewController = FavouritesViewController(viewModel: FavouriteViewModel())
         favouritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         self.viewControllers = [UINavigationController(rootViewController: homeCollectionViewController), UINavigationController(rootViewController: favouritesViewController)]

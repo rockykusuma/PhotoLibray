@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 // MARK: - ImageServiceResponse
 struct ImageServiceResponse: Codable {

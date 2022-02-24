@@ -1,79 +1,80 @@
 //
-//  HomeViewModel.swift
+//  FavouriteViewModel.swift
 //  PhotoLibrary
 //
-//  Created by Rakesh Kusuma on 19/02/22.
+//  Created by Rakesh Kusuma on 23/02/22.
 //
 
 import Foundation
 import UIKit
 
-protocol HomeViewModelProvider {
-    func fetchAccountImages()
+protocol FavouriteViewModelProvider {
+    func fetchFavouriteImages()
     func fetchImagesMore()
     func favouriteTheImage()
-    var photos: [Photo] { get }
-    var delegate: HomeViewModelDelegate? { get set }
+    var photos: [FavouritePhoto] { get }
+    var delegate: FavouriteViewModelDelegate? { get set }
     func showDetailImageView(index: Int, image: UIImage?)
     var pageNumber: Int { get }
     var paginationCompleted: Bool { get }
     var isLoading: Bool { get }
 }
 
-protocol HomeViewModelDelegate: AnyObject {
+protocol FavouriteViewModelDelegate: AnyObject {
     func reloadCollectionView()
     func showDetailPage(with viewController: UIViewController)
 }
 
-final class HomeViewModel: HomeViewModelProvider {
+final class FavouriteViewModel: FavouriteViewModelProvider {
     
     private var imageClient: ImageClientProvider?
-    private (set) var photos: [Photo] = []
+    private (set) var photos: [FavouritePhoto] = []
     private (set) var pageNumber: Int = 0
     private (set) var paginationCompleted = false
     private (set) var isLoading = false
-    weak var delegate: HomeViewModelDelegate?
+    weak var delegate: FavouriteViewModelDelegate?
     
     init(imageClient: ImageClientProvider = ImageClient()) {
         self.imageClient = imageClient
         self.imageClient?.delegate = self
     }
     
-    // Fetch the Account Images
-    func fetchAccountImages() {
+    // Fetch the Favourite Images
+    func fetchFavouriteImages() {
         photos.removeAll()
         pageNumber = 0
         isLoading = true
-        imageClient?.getAccountImages(with: pageNumber)
+        imageClient?.getFavouriteImages(with: pageNumber)
     }
     
     func fetchImagesMore() {
         if !paginationCompleted && !isLoading {
             isLoading = true
             pageNumber += 1
-            imageClient?.getAccountImages(with: pageNumber)
+            imageClient?.getFavouriteImages(with: pageNumber)
         }
     }
     
     func favouriteTheImage() {
+        
     }
     
     func showDetailImageView(index: Int, image: UIImage?) {
         let photo = photos[index]
         let detailPhoto = DetailPagePhoto(id: photo.id, image: image)
-        let homeDetailViewModel = ImageDetailViewModel(photo: detailPhoto, detailScreenFlow: .home)
+        let homeDetailViewModel = ImageDetailViewModel(photo: detailPhoto, detailScreenFlow: .favourite)
         let homeDetailViewController = ImageDetailViewController(viewModel: homeDetailViewModel)
         delegate?.showDetailPage(with: homeDetailViewController)
     }
 }
 
-extension HomeViewModel: ImageClientDelegate {
-    func didReceiveAccountImages(data: [Photo]) {
+extension FavouriteViewModel: ImageClientDelegate {
+    func didReceiveFavouriteImages(data: [FavouritePhoto]) {
         self.isLoading = false
         if data.isEmpty {
             paginationCompleted = true
-            debugPrint("Total Photos Count -> \(photos.count)")
             delegate?.reloadCollectionView()
+            debugPrint("Total Photos Count -> \(photos.count)")
             return
         }
         paginationCompleted = false

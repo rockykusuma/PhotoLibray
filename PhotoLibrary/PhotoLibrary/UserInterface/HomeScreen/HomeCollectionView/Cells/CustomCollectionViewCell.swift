@@ -12,15 +12,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    func configureCell(with data: Photo) {
-        if let link = data.link, let url = URL(string: link) {
-            loadImage(url: url)
-        }
+    func configureCell(with imageUrl: URL) {
+        loadImage(url: imageUrl)
+        
     }
     
     private func loadImage(url: URL) {
@@ -37,8 +31,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
                 .cacheOriginalImage
             ]) { result in
             switch result {
-            case .success(let value):
-                print("Task done for: \(value.source.url?.absoluteString ?? "")")
+            case .success:
+                break
             case .failure(let error):
                 print("Job failed: \(error.localizedDescription)")
             }

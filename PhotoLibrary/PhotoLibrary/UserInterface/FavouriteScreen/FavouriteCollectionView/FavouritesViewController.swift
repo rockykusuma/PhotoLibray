@@ -12,12 +12,12 @@ final class FavouritesViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
-    private var viewModel: HomeViewModelProvider
+    private var viewModel: FavouriteViewModelProvider
     
-    var collectionViewDataSource: HomeCollectionViewDataSource?
-    var collectionViewDelegateObject: HomeCollectionViewDelegate?
+    var collectionViewDataSource: FavouriteCollectionViewDataSource?
+    var collectionViewDelegateObject: FavouriteCollectionViewDelegate?
     
-    init(viewModel: HomeViewModelProvider) {
+    init(viewModel: FavouriteViewModelProvider) {
         self.viewModel = viewModel
         super.init(nibName: "HomeCollectionViewController", bundle: nil)
     }
@@ -30,7 +30,12 @@ final class FavouritesViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         configureCollectionView()
-//        viewModel.getAccountImages()
+        title = "Favourites"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchFavouriteImages()
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,8 +46,8 @@ final class FavouritesViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionViewDataSource = HomeCollectionViewDataSource(withData: viewModel)
-        collectionViewDelegateObject = HomeCollectionViewDelegate(withData: viewModel)
+        collectionViewDataSource = FavouriteCollectionViewDataSource(withData: viewModel)
+        collectionViewDelegateObject = FavouriteCollectionViewDelegate(withData: viewModel)
         collectionView.delegate = self.collectionViewDelegateObject
         collectionView.dataSource = self.collectionViewDataSource
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -52,7 +57,7 @@ final class FavouritesViewController: UIViewController {
 }
 
 
-extension FavouritesViewController: HomeViewModelDelegate {
+extension FavouritesViewController: FavouriteViewModelDelegate {
     
     func showDetailPage(with viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
