@@ -13,7 +13,6 @@ typealias FavouriteImageServiceResponseCompletion = (Swift.Result<FavouriteImage
 typealias FavouriteImageStatusCompletion = (Swift.Result<FavouriteResponse?, APIError>) -> Void
 
 protocol ImageServiceProtocol {
-    func getGallery(with pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion)
     func getAccountImages(with pageNumber: Int?, completion: @escaping ImageServiceResponseCompletion)
     func searchGallery(with keyword: String, pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion)
     func getFavouriteImages(with pageNumber: Int?, completion: @escaping FavouriteImageServiceResponseCompletion)
@@ -23,17 +22,6 @@ protocol ImageServiceProtocol {
 final class ImageService: RestAPIService, ImageServiceProtocol {
     
     private let router = Router<ImageEndPoint>()
-    
-    func getGallery(with pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion) {
-        router.request(.getGalleryImages(pageNumber: pageNumber)) { response in
-            self.executeResponseEvaluator(GalleryServiceResponse.self, response: response) { imageServiceResponse, responseError in
-                if let error = responseError {
-                    completion(.failure(error))
-                }
-                completion(.success(imageServiceResponse))
-            }
-        }
-    }
     
     func getAccountImages(with pageNumber: Int?, completion: @escaping ImageServiceResponseCompletion) {
         router.request(.getAccountImages(pageNumber: pageNumber)) { response in

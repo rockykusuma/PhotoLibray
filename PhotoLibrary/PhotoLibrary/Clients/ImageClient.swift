@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol ImageClientProvider {
-    func getGalleryImages(with pageNumber: Int?)
     func getAccountImages(with pageNumber: Int?)
     func searchGallery(with keyword: String, pageNumber: Int?)
     func getFavouriteImages(with pageNumber: Int?)
@@ -18,7 +17,6 @@ protocol ImageClientProvider {
 }
 
 protocol ImageClientDelegate: AnyObject {
-    func didReceiveGalleryImages(data: [Gallery])
     func didReceiveAccountImages(data: [Photo])
     func didReceiveFavouriteImages(data: [FavouritePhoto])
     func didReceiveSearchResultGallery(data: [Gallery])
@@ -26,7 +24,6 @@ protocol ImageClientDelegate: AnyObject {
 }
 
 extension ImageClientDelegate {
-    func didReceiveGalleryImages(data: [Gallery]) {}
     func didReceiveAccountImages(data: [Photo]) {}
     func didReceiveFavouriteImages(data: [FavouritePhoto]) {}
     func didReceiveSearchResultGallery(data: [Gallery]) {}
@@ -40,22 +37,6 @@ final class ImageClient: ImageClientProvider {
     
     init(imageService: ImageServiceProtocol = ImageService()) {
         self.imageService = imageService
-    }
-    
-    func getGalleryImages(with pageNumber: Int?) {
-        imageService.getGallery(with: pageNumber) { [weak self] result in
-            guard let `self` = self else {
-                return
-            }
-            switch result {
-            case .success(let response):
-                if let gallery = response?.data {
-                    self.delegate?.didReceiveGalleryImages(data: gallery)
-                }
-            case .failure(let error):
-                debugPrint(error.errorDescription ?? "")
-            }
-        }
     }
     
     func getAccountImages(with pageNumber: Int?) {
