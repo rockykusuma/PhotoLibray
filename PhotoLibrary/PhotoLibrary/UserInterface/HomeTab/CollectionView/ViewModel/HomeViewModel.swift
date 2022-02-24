@@ -35,13 +35,13 @@ final class HomeViewModel: HomeViewModelProvider {
     
     /// Initializer
     ///  - Parameters:
-    ///  - imageClient: ImageClientProvider
+    ///   - imageClient: ImageClientProvider
     init(imageClient: ImageClientProvider = ImageClient()) {
         self.imageClient = imageClient
         self.imageClient?.delegate = self
     }
     
-    // Fetch the Account Images
+    /// Fetch the Account Images
     func fetchAccountImages() {
         photos.removeAll()
         pageNumber = 0
@@ -49,6 +49,7 @@ final class HomeViewModel: HomeViewModelProvider {
         imageClient?.getAccountImages(with: pageNumber)
     }
     
+    /// Fetch more images with pagination
     func fetchImagesMore() {
         if !paginationCompleted && !isLoading {
             isLoading = true
@@ -57,6 +58,10 @@ final class HomeViewModel: HomeViewModelProvider {
         }
     }
 
+    /// showDetailImageView
+    ///  - Parameters:
+    ///   - index: Int
+    ///   - image: UIImage
     func showDetailImageView(index: Int, image: UIImage?) {
         let photo = photos[index]
         let detailPhoto = DetailPagePhoto(id: photo.id, image: image)

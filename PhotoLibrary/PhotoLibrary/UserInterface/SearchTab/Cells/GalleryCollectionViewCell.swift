@@ -8,10 +8,13 @@
 import UIKit
 import Kingfisher
 
-class GalleryCollectionViewCell: UICollectionViewCell {
+final class GalleryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    /// configureCell
+    ///  - Parameters:
+    ///   - gallery: Gallery
     func configureCell(with gallery: Gallery) {
         var photo: GalleryImage?
         if let images = gallery.images, !images.isEmpty {
@@ -29,6 +32,9 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    /// loadImage
+    ///  - Parameters:
+    ///   - url: URL
     private func loadImage(url: URL) {
         let processor = DownsamplingImageProcessor(size: imageView.bounds.size)
                      |> RoundCornerImageProcessor(cornerRadius: 0)

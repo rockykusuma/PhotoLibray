@@ -33,12 +33,15 @@ final class FavouriteViewModel: FavouriteViewModelProvider {
     private (set) var isLoading = false
     weak var delegate: FavouriteViewModelDelegate?
     
+    /// Initializer
+    ///  - Parameters:
+    ///   - imageClient: ImageClientProvider
     init(imageClient: ImageClientProvider = ImageClient()) {
         self.imageClient = imageClient
         self.imageClient?.delegate = self
     }
     
-    // Fetch the Favourite Images
+    /// Fetch the Favourite Images
     func fetchFavouriteImages() {
         photos.removeAll()
         pageNumber = 0
@@ -46,6 +49,7 @@ final class FavouriteViewModel: FavouriteViewModelProvider {
         imageClient?.getFavouriteImages(with: pageNumber)
     }
     
+    /// Fetch more images using pagination
     func fetchImagesMore() {
         if !paginationCompleted && !isLoading {
             isLoading = true
@@ -54,6 +58,10 @@ final class FavouriteViewModel: FavouriteViewModelProvider {
         }
     }
 
+    /// showDetailImageView
+    ///  - Parameters:
+    ///   - index: Int
+    ///   - image: UIImage
     func showDetailImageView(index: Int, image: UIImage?) {
         let photo = photos[index]
         let detailPhoto = DetailPagePhoto(id: photo.id, image: image)

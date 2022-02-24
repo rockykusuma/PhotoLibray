@@ -12,10 +12,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
 
+    /// configureCell
+    ///  - Parameters:
+    ///   - imageUrl: URL
     func configureCell(with imageUrl: URL) {
         loadImage(url: imageUrl)
     }
     
+    /// loadImage
+    ///  - Parameters:
+    ///   - url: URL
     private func loadImage(url: URL) {
         let processor = DownsamplingImageProcessor(size: imageView.bounds.size)
                      |> RoundCornerImageProcessor(cornerRadius: 0)

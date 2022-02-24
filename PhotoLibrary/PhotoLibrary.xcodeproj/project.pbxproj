@@ -11,6 +11,7 @@
 		9625F5B727C7BD5300F305E4 /* UISearch+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9625F5B627C7BD5300F305E4 /* UISearch+Extensions.swift */; };
 		9625F5BB27C7CDCA00F305E4 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9625F5BA27C7CDCA00F305E4 /* SearchViewModelTests.swift */; };
 		9625F5BF27C7CEF600F305E4 /* SearchServiceResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9625F5BE27C7CEF600F305E4 /* SearchServiceResponse.json */; };
+		963A962C27C7DFCA00E00DB0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 963A962B27C7DFCA00E00DB0 /* README.md */; };
 		96677EB927C128CF0046F2CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677EB827C128CF0046F2CC /* AppDelegate.swift */; };
 		96677EBB27C128CF0046F2CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96677EBA27C128CF0046F2CC /* SceneDelegate.swift */; };
 		96677EC227C128D10046F2CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96677EC127C128D10046F2CC /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		9625F5B627C7BD5300F305E4 /* UISearch+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearch+Extensions.swift"; sourceTree = "<group>"; };
 		9625F5BA27C7CDCA00F305E4 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		9625F5BE27C7CEF600F305E4 /* SearchServiceResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchServiceResponse.json; sourceTree = "<group>"; };
+		963A962B27C7DFCA00E00DB0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		96677EB527C128CF0046F2CC /* PhotoLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96677EB827C128CF0046F2CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96677EBA27C128CF0046F2CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,9 +207,18 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		963A962A27C7DFBE00E00DB0 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				963A962B27C7DFCA00E00DB0 /* README.md */,
+			);
+			name = Metadata;
+			sourceTree = "<group>";
+		};
 		96677EAC27C128CE0046F2CC = {
 			isa = PBXGroup;
 			children = (
+				963A962A27C7DFBE00E00DB0 /* Metadata */,
 				96677EB727C128CF0046F2CC /* PhotoLibrary */,
 				96677ECE27C128D10046F2CC /* PhotoLibraryTests */,
 				96677EB627C128CF0046F2CC /* Products */,
@@ -621,6 +632,7 @@
 				9697A97527C26BCB006EA4F7 /* ImageDetailViewController.xib in Resources */,
 				9697A96127C235FA006EA4F7 /* HomeCollectionViewController.xib in Resources */,
 				96ABE7DB27C7AF9F0064D9DE /* GalleryCollectionViewCell.xib in Resources */,
+				963A962C27C7DFCA00E00DB0 /* README.md in Resources */,
 				96677F3C27C176530046F2CC /* CustomCollectionViewCell.xib in Resources */,
 				96ABE7CF27C791E00064D9DE /* SearchCollectionViewController.xib in Resources */,
 			);

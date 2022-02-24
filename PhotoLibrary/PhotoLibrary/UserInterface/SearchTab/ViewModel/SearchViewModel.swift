@@ -36,12 +36,16 @@ final class SearchViewModel: SearchViewModelProvider {
     weak var delegate: SearchViewModelDelegate?
     var searchText: String = ""
     
+    
+    /// Initializer
+    ///  - Parameters:
+    ///   - imageClient: ImageClientProvider
     init(imageClient: ImageClientProvider = ImageClient()) {
         self.imageClient = imageClient
         self.imageClient?.delegate = self
     }
     
-    // Fetch the Favourite Images
+    /// Fetch the Favourite Images
     func searchInGallery(with keyword: String) {
         self.searchText = keyword
         gallery.removeAll()
@@ -50,6 +54,7 @@ final class SearchViewModel: SearchViewModelProvider {
         imageClient?.searchGallery(with: keyword, pageNumber: pageNumber)
     }
     
+    /// Fetch more images using pagination
     func fetchMoreInGallery() {
         if !paginationCompleted && !isLoading {
             isLoading = true
@@ -58,6 +63,10 @@ final class SearchViewModel: SearchViewModelProvider {
         }
     }
     
+    /// showDetailImageView
+    ///  - Parameters:
+    ///   - index: Int
+    ///   - image: UIImage
     func showDetailImageView(index: Int, image: UIImage?) {
         let photo = gallery[index]
         let detailPhoto = DetailPagePhoto(id: photo.id, image: image)
@@ -66,6 +75,7 @@ final class SearchViewModel: SearchViewModelProvider {
         delegate?.showDetailPage(with: homeDetailViewController)
     }
     
+    /// Empty Search List
     func emptySearchList() {
         self.searchText = ""
         self.gallery.removeAll()
