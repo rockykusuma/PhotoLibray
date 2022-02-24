@@ -33,11 +33,15 @@ class TabBarController: UITabBarController {
         let homeCollectionViewController = HomeCollectionViewController(viewModel: HomeViewModel())
         homeCollectionViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
         
+        let searchViewController = SearchCollectionViewController(viewModel: SearchViewModel())
+        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
         
         let favouritesViewController = FavouritesViewController(viewModel: FavouriteViewModel())
-        favouritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        favouritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
         
-        self.viewControllers = [UINavigationController(rootViewController: homeCollectionViewController), UINavigationController(rootViewController: favouritesViewController)]
+        self.viewControllers = [UINavigationController(rootViewController: homeCollectionViewController),
+                                UINavigationController(rootViewController: searchViewController),
+                                UINavigationController(rootViewController: favouritesViewController)]
     }
 }
 

@@ -12,6 +12,9 @@ final class HomeCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICo
     
     var viewModel: HomeViewModelProvider?
     
+    /// Initializer
+    ///  - Parameters:
+    ///   - viewModel: HomeViewModelProvider
     init(withData viewModel: HomeViewModelProvider?) {
         self.viewModel = viewModel
     }
@@ -23,7 +26,7 @@ final class HomeCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)        
+        return CGSize(width: 120, height: 120)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

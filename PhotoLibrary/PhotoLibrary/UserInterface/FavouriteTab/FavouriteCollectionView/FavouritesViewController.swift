@@ -17,6 +17,9 @@ final class FavouritesViewController: UIViewController {
     var collectionViewDataSource: FavouriteCollectionViewDataSource?
     var collectionViewDelegateObject: FavouriteCollectionViewDelegate?
     
+    /// Initializer
+    ///  - Parameters:
+    ///   - viewModel: FavouriteViewModelProvider
     init(viewModel: FavouriteViewModelProvider) {
         self.viewModel = viewModel
         super.init(nibName: "HomeCollectionViewController", bundle: nil)
@@ -41,8 +44,9 @@ final class FavouritesViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 4
         flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
     }
     
     private func configureCollectionView() {

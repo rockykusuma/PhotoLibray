@@ -11,7 +11,6 @@ import UIKit
 protocol FavouriteViewModelProvider {
     func fetchFavouriteImages()
     func fetchImagesMore()
-    func favouriteTheImage()
     var photos: [FavouritePhoto] { get }
     var delegate: FavouriteViewModelDelegate? { get set }
     func showDetailImageView(index: Int, image: UIImage?)
@@ -54,11 +53,7 @@ final class FavouriteViewModel: FavouriteViewModelProvider {
             imageClient?.getFavouriteImages(with: pageNumber)
         }
     }
-    
-    func favouriteTheImage() {
-        
-    }
-    
+
     func showDetailImageView(index: Int, image: UIImage?) {
         let photo = photos[index]
         let detailPhoto = DetailPagePhoto(id: photo.id, image: image)

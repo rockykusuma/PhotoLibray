@@ -19,6 +19,9 @@ class ImageDetailViewController: UIViewController {
     
     private (set) var viewModel: ImageDetailViewModelProvider?
     
+    /// Initializer
+    ///  - Parameters:
+    ///   - viewModel: ImageDetailViewModelProvider
     init(viewModel: ImageDetailViewModelProvider) {
         self.viewModel = viewModel
         super.init(nibName: "ImageDetailViewController", bundle: nil)
@@ -30,13 +33,15 @@ class ImageDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if viewModel?.detailScreenFlow == .favourite {
-            updateFavouriteButton(isFavourite: true)
-        } else {
-            updateFavouriteButton()
+        if viewModel?.detailScreenFlow != .search {
+            if viewModel?.detailScreenFlow == .favourite {
+                updateFavouriteButton(isFavourite: true)
+            } else {
+                updateFavouriteButton()
+            }
         }
         imageView.image = viewModel?.photo?.image
-        viewModel?.delegate = self
+        viewModel?.delegate = self        
     }
     
     private func updateFavouriteButton(isFavourite: Bool = false) {

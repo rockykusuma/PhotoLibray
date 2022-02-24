@@ -14,7 +14,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
     func configureCell(with imageUrl: URL) {
         loadImage(url: imageUrl)
-        
     }
     
     private func loadImage(url: URL) {

@@ -1,18 +1,21 @@
 //
-//  FavouriteCollectionViewDataSource.swift
+//  HomeCollectionViewDataSource.swift
 //  PhotoLibrary
 //
-//  Created by Rakesh Kusuma on 23/02/22.
+//  Created by Rakesh Kusuma on 20/02/22.
 //
 
 import Foundation
 import UIKit
 
-final class FavouriteCollectionViewDataSource: NSObject, UICollectionViewDataSource {
+final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    var viewModel: FavouriteViewModelProvider?
+    var viewModel: HomeViewModelProvider?
     
-    init(withData viewModel: FavouriteViewModelProvider?) {
+    /// Initializer
+    ///  - Parameters:
+    ///   - viewModel: HomeViewModelProvider
+    init(withData viewModel: HomeViewModelProvider?) {
         self.viewModel = viewModel
     }
     

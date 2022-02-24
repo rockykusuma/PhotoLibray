@@ -1,83 +1,88 @@
 //
-//  HomeViewModel.swift
+//  SearchViewModel.swift
 //  PhotoLibrary
 //
-//  Created by Rakesh Kusuma on 19/02/22.
+//  Created by Rakesh Kusuma on 24/02/22.
 //
 
 import Foundation
 import UIKit
 
-protocol HomeViewModelProvider {
-    func fetchAccountImages()
-    func fetchImagesMore()
-    func favouriteTheImage()
-    var photos: [Photo] { get }
-    var delegate: HomeViewModelDelegate? { get set }
+protocol SearchViewModelProvider {
+    func searchInGallery(with keyword: String)
+    func fetchMoreInGallery()
+    var gallery: [Gallery] { get }
+    var delegate: SearchViewModelDelegate? { get set }
     func showDetailImageView(index: Int, image: UIImage?)
+    var searchText: String { get set }
     var pageNumber: Int { get }
     var paginationCompleted: Bool { get }
     var isLoading: Bool { get }
+    func emptySearchList()
 }
 
-protocol HomeViewModelDelegate: AnyObject {
+protocol SearchViewModelDelegate: AnyObject {
     func reloadCollectionView()
     func showDetailPage(with viewController: UIViewController)
 }
 
-final class HomeViewModel: HomeViewModelProvider {
+final class SearchViewModel: SearchViewModelProvider {
     
     private var imageClient: ImageClientProvider?
-    private (set) var photos: [Photo] = []
+    private (set) var gallery: [Gallery] = []
     private (set) var pageNumber: Int = 0
     private (set) var paginationCompleted = false
     private (set) var isLoading = false
-    weak var delegate: HomeViewModelDelegate?
+    weak var delegate: SearchViewModelDelegate?
+    var searchText: String = ""
     
     init(imageClient: ImageClientProvider = ImageClient()) {
         self.imageClient = imageClient
         self.imageClient?.delegate = self
     }
     
-    // Fetch the Account Images
-    func fetchAccountImages() {
-        photos.removeAll()
+    // Fetch the Favourite Images
+    func searchInGallery(with keyword: String) {
+        self.searchText = keyword
+        gallery.removeAll()
         pageNumber = 0
         isLoading = true
-        imageClient?.getAccountImages(with: pageNumber)
+        imageClient?.searchGallery(with: keyword, pageNumber: pageNumber)
     }
     
-    func fetchImagesMore() {
+    func fetchMoreInGallery() {
         if !paginationCompleted && !isLoading {
             isLoading = true
             pageNumber += 1
-            imageClient?.getAccountImages(with: pageNumber)
+            imageClient?.searchGallery(with: searchText, pageNumber: pageNumber)
         }
     }
     
-    func favouriteTheImage() {
-    }
-    
     func showDetailImageView(index: Int, image: UIImage?) {
-        let photo = photos[index]
+        let photo = gallery[index]
         let detailPhoto = DetailPagePhoto(id: photo.id, image: image)
-        let homeDetailViewModel = ImageDetailViewModel(photo: detailPhoto, detailScreenFlow: .home)
+        let homeDetailViewModel = ImageDetailViewModel(photo: detailPhoto, detailScreenFlow: .search)
         let homeDetailViewController = ImageDetailViewController(viewModel: homeDetailViewModel)
         delegate?.showDetailPage(with: homeDetailViewController)
     }
+    
+    func emptySearchList() {
+        self.searchText = ""
+        self.gallery.removeAll()
+    }
 }
 
-extension HomeViewModel: ImageClientDelegate {
-    func didReceiveAccountImages(data: [Photo]) {
+extension SearchViewModel: ImageClientDelegate {
+    func didReceiveSearchResultGallery(data: [Gallery]) {
         self.isLoading = false
         if data.isEmpty {
             paginationCompleted = true
-            debugPrint("Total Photos Count -> \(photos.count)")
+            debugPrint("Total Gallery Count -> \(gallery.count)")
             delegate?.reloadCollectionView()
             return
         }
         paginationCompleted = false
-        photos.append(contentsOf: data)
+        gallery.append(contentsOf: data)
         delegate?.reloadCollectionView()
     }
 }

@@ -20,7 +20,7 @@ struct Photo: Codable {
     let id: String?
     let title, datumDescription: String?
     let dateTime: Int?
-    let type: TypeEnum?
+    let type: String?
     let animated: Bool?
     let width, height, size, views: Int?
     let bandwidth: Int?
@@ -55,9 +55,4 @@ struct Photo: Codable {
         case name, link
         case deleteHash = "deletehash"
     }
-}
-
-enum TypeEnum: String, Codable {
-    case imageJPEG = "image/jpeg"
-    case imagePNG = "image/png"
 }

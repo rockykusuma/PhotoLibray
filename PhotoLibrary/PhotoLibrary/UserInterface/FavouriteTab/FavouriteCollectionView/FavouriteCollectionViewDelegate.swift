@@ -12,6 +12,9 @@ final class FavouriteCollectionViewDelegate: NSObject, UICollectionViewDelegate,
     
     var viewModel: FavouriteViewModelProvider?
     
+    /// Initializer
+    ///  - Parameters:
+    ///   - viewModel: FavouriteViewModelProvider
     init(withData viewModel: FavouriteViewModelProvider?) {
         self.viewModel = viewModel
     }

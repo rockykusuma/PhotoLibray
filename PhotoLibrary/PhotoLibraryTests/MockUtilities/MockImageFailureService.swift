@@ -10,7 +10,16 @@ import Foundation
 @testable import PhotoLibrary
 
 final class MockImageFailureService: RestAPIService, ImageServiceProtocol {
+    func getGallery(with pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion) {
+        let error = APIError(errorDescription: "No Response from API", httpCode: HTTPStatus.badRequest, errorCode: "0")
+        completion(.failure(error))
+    }
     
+    func searchGallery(with keyword: String, pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion) {
+        let error = APIError(errorDescription: "No Response from API", httpCode: HTTPStatus.badRequest, errorCode: "0")
+        completion(.failure(error))
+    }
+        
     func getAccountImages(with pageNumber: Int?, completion: @escaping ImageServiceResponseCompletion) {
         let error = APIError(errorDescription: "No Response from API", httpCode: HTTPStatus.badRequest, errorCode: "0")
         completion(.failure(error))

@@ -31,4 +31,15 @@ final class MockImageSuccessService: RestAPIService, ImageServiceProtocol {
         let result = stubGenerator.makeFavouriteResponse(FavouriteResponse.self)
         completion(.success(result))
     }
+    
+    func getGallery(with pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion) {
+        let result = stubGenerator.makeSearchServiceResponse(GalleryServiceResponse.self)
+        completion(.success(result))
+    }
+    
+    func searchGallery(with keyword: String, pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion) {
+        let result = stubGenerator.makeSearchServiceResponse(GalleryServiceResponse.self)
+        completion(.success(result))
+    }
+    
 }

@@ -12,13 +12,15 @@ final class HomeCollectionViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
-    lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
     private (set) var viewModel: HomeViewModelProvider
     
     var collectionViewDataSource: HomeCollectionViewDataSource?
     var collectionViewDelegateObject: HomeCollectionViewDelegate?
     
+    /// Initializer
+    ///  - Parameters:
+    ///   - viewModel: HomeViewModelProvider
     init(viewModel: HomeViewModelProvider) {
         self.viewModel = viewModel
         super.init(nibName: "HomeCollectionViewController", bundle: nil)
@@ -43,14 +45,13 @@ final class HomeCollectionViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 4
         flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
     }
     
     private func configureUI() {
         self.title = "Home"
-        searchBar.placeholder = "Search Image"
-        self.navigationItem.titleView = searchBar
     }
     
     private func configureCollectionView() {

@@ -21,7 +21,7 @@ struct DetailPagePhoto {
 }
 
 enum DetailScreenFlow {
-    case home, favourite
+    case home, favourite, search
 }
 
 protocol DetailViewModelDelegate: AnyObject {
@@ -35,6 +35,12 @@ final class ImageDetailViewModel: ImageDetailViewModelProvider {
     weak var delegate: DetailViewModelDelegate?
     var photo: DetailPagePhoto?
     
+    
+    /// Initializer
+    ///  - Parameters:
+    ///   - photo: DetailPagePhoto
+    ///   - detailScreenFlow: DetailScreenFlow
+    ///   - imageClient: ImageClientProvider
     init(photo: DetailPagePhoto?, detailScreenFlow: DetailScreenFlow?, imageClient: ImageClientProvider = ImageClient()) {
         self.imageClient = imageClient
         self.photo = photo
