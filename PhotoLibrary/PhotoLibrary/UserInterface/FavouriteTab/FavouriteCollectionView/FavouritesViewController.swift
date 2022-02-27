@@ -72,4 +72,9 @@ extension FavouritesViewController: FavouriteViewModelDelegate {
             self.collectionView.reloadData()
         }
     }
+    
+    func didReceiveError(error: APIError) {
+        // Error can be thrown in the form of an Alert or a Banner in the UI
+        debugPrint(error.errorDescription ?? "")
+    }
 }

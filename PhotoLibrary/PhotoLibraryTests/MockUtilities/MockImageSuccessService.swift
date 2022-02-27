@@ -8,7 +8,7 @@
 import Foundation
 @testable import PhotoLibrary
 
-final class MockImageSuccessService: RestAPIService, ImageServiceProtocol {
+class MockImageSuccessService: RestAPIService, ImageServiceProtocol {
     
     let stubGenerator = StubGenerator()
     
@@ -28,8 +28,13 @@ final class MockImageSuccessService: RestAPIService, ImageServiceProtocol {
     }
     
     func favouriteTheImage(with id: String, completion: @escaping FavouriteImageStatusCompletion) {
-        let result = stubGenerator.makeFavouriteResponse(FavouriteResponse.self)
-        completion(.success(result))
+        if String(describing: self) == "PhotoLibraryTests.MockImageSuccessService" {
+            let result = stubGenerator.makeFavouriteResponse(FavouriteResponse.self)
+            completion(.success(result))
+        } else {
+            let result = stubGenerator.makeFavouriteResponseTwo(FavouriteResponse.self)
+            completion(.success(result))
+        }
     }
     
     func getGallery(with pageNumber: Int?, completion: @escaping GalleryServiceResponseCompletion) {
@@ -41,5 +46,8 @@ final class MockImageSuccessService: RestAPIService, ImageServiceProtocol {
         let result = stubGenerator.makeSearchServiceResponse(GalleryServiceResponse.self)
         completion(.success(result))
     }
+}
+
+class MockImageSuccessServiceTwo: MockImageSuccessService {
     
 }

@@ -77,6 +77,11 @@ extension SearchCollectionViewController: SearchViewModelDelegate {
     func showDetailPage(with viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func didReceiveError(error: APIError) {
+        // Error can be thrown in the form of an Alert or a Banner in the UI
+        debugPrint(error.errorDescription ?? "")
+    }
 }
 
 extension SearchCollectionViewController: UISearchBarDelegate {

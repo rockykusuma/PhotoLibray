@@ -24,6 +24,7 @@ protocol SearchViewModelProvider {
 protocol SearchViewModelDelegate: AnyObject {
     func reloadCollectionView()
     func showDetailPage(with viewController: UIViewController)
+    func didReceiveError(error: APIError)
 }
 
 final class SearchViewModel: SearchViewModelProvider {
@@ -94,5 +95,9 @@ extension SearchViewModel: ImageClientDelegate {
         paginationCompleted = false
         gallery.append(contentsOf: data)
         delegate?.reloadCollectionView()
+    }
+    
+    func didReceiveError(error: APIError) {
+        delegate?.didReceiveError(error: error)
     }
 }

@@ -22,6 +22,7 @@ protocol HomeViewModelProvider {
 protocol HomeViewModelDelegate: AnyObject {
     func reloadCollectionView()
     func showDetailPage(with viewController: UIViewController)
+    func didReceiveError(error: APIError)
 }
 
 final class HomeViewModel: HomeViewModelProvider {
@@ -83,5 +84,9 @@ extension HomeViewModel: ImageClientDelegate {
         paginationCompleted = false
         photos.append(contentsOf: data)
         delegate?.reloadCollectionView()
+    }
+    
+    func didReceiveError(error: APIError) {
+        delegate?.didReceiveError(error: error)
     }
 }

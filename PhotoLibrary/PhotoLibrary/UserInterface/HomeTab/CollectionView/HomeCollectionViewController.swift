@@ -13,7 +13,7 @@ final class HomeCollectionViewController: UIViewController {
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
     
     
-    private (set) var viewModel: HomeViewModelProvider
+    var viewModel: HomeViewModelProvider
     
     var collectionViewDataSource: HomeCollectionViewDataSource?
     var collectionViewDelegateObject: HomeCollectionViewDelegate?
@@ -75,5 +75,10 @@ extension HomeCollectionViewController: HomeViewModelDelegate {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    func didReceiveError(error: APIError) {
+        // Error can be thrown in the form of an Alert or a Banner in the UI
+        debugPrint(error.errorDescription ?? "")
     }
 }

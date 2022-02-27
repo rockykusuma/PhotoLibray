@@ -33,6 +33,14 @@ class StubGenerator {
         return mappingResponse
     }
     
+    func makeFavouriteResponseTwo<T: Decodable>(_ expectedType: T.Type) -> T? {
+        let bundle = Bundle(for: type(of: self))
+        guard let mappingResponse = FileUtility.objectFromJsonFile(T.self, fileNameBase: "FavouriteResponseTwo", bundle: bundle) else {
+            return nil
+        }
+        return mappingResponse
+    }
+    
     func makeSearchServiceResponse<T: Decodable>(_ expectedType: T.Type) -> T? {
         let bundle = Bundle(for: type(of: self))
         guard let mappingResponse = FileUtility.objectFromJsonFile(T.self, fileNameBase: "SearchServiceResponse", bundle: bundle) else {

@@ -21,6 +21,7 @@ protocol ImageClientDelegate: AnyObject {
     func didReceiveFavouriteImages(data: [FavouritePhoto])
     func didReceiveSearchResultGallery(data: [Gallery])
     func didImageFavourited(status: Bool)
+    func didReceiveError(error: APIError)
 }
 
 extension ImageClientDelegate {
@@ -28,6 +29,7 @@ extension ImageClientDelegate {
     func didReceiveFavouriteImages(data: [FavouritePhoto]) {}
     func didReceiveSearchResultGallery(data: [Gallery]) {}
     func didImageFavourited(status: Bool) {}
+    func didReceiveError(error: APIError) {}
 }
 
 final class ImageClient: ImageClientProvider {
@@ -50,7 +52,7 @@ final class ImageClient: ImageClientProvider {
                     self.delegate?.didReceiveAccountImages(data: photos)
                 }
             case .failure(let error):
-                debugPrint(error.errorDescription ?? "")
+                self.delegate?.didReceiveError(error: error)
             }
         })
     }
@@ -66,7 +68,7 @@ final class ImageClient: ImageClientProvider {
                     self.delegate?.didReceiveSearchResultGallery(data: gallery)
                 }
             case .failure(let error):
-                debugPrint(error.errorDescription ?? "")
+                self.delegate?.didReceiveError(error: error)
             }
         }
     }
@@ -82,7 +84,7 @@ final class ImageClient: ImageClientProvider {
                     self.delegate?.didReceiveFavouriteImages(data: photos)
                 }
             case .failure(let error):
-                debugPrint(error.errorDescription ?? "")
+                self.delegate?.didReceiveError(error: error)
             }
         }
     }
@@ -102,7 +104,7 @@ final class ImageClient: ImageClientProvider {
                     }
                 }
             case .failure(let error):
-                debugPrint(error.errorDescription ?? "")
+                self.delegate?.didReceiveError(error: error)
             }
         }
     }

@@ -26,6 +26,11 @@ Delegate, Closure, Dependency Injection
 
 ## Unit Tests
 XCTestCases
+Code Coverage -> 37.7%
+
+Highest Covered Class is 
+1. ImageClient class -> 89.8%
+
 
 ## ScreenShots
 

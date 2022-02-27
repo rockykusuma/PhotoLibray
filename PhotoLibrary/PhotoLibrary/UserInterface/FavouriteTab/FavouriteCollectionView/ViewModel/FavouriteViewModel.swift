@@ -22,6 +22,7 @@ protocol FavouriteViewModelProvider {
 protocol FavouriteViewModelDelegate: AnyObject {
     func reloadCollectionView()
     func showDetailPage(with viewController: UIViewController)
+    func didReceiveError(error: APIError)
 }
 
 final class FavouriteViewModel: FavouriteViewModelProvider {
@@ -83,5 +84,9 @@ extension FavouriteViewModel: ImageClientDelegate {
         paginationCompleted = false
         photos.append(contentsOf: data)
         delegate?.reloadCollectionView()
+    }
+    
+    func didReceiveError(error: APIError) {
+        delegate?.didReceiveError(error: error)
     }
 }
